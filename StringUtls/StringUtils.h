@@ -26,5 +26,14 @@ extern std::string Ken_Int2String(const int num);
 //将整形数字转化成千分位表示形式
 //需要更大的数字，可以用long long表示
 extern std::string Ken_FormatInt2Thousands(const int num);
+
+//将字符串转换成int ，不考虑非法字符，不考虑int溢出
+//下面几个相同，函数重载
+extern int Ken_String2Int(char* str);
+
+extern int Ken_String2Int(const char* str);
+
+extern int Ken_String2Int(std::string& str);
+
 #endif /* end of include guard: STRINGUTILS_HPP */
 

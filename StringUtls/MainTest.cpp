@@ -34,9 +34,14 @@ int main(void)
 	//	std::cout << *it << " ";
 	//---------------------------------------------------------------------------------------------------//
 
-	std::string str = Ken_FormatInt2Thousands(-123456799);
-	std::cout << str << std::endl;
+	//std::string str = Ken_FormatInt2Thousands(-123456799);
+	//std::cout << str << std::endl;
 
+	char* str = "+123456";  //str = "-1234567", str = "+1234567"
+	std::cout << Ken_String2Int(str);
+
+	//std::string str = "-1234567";
+	//std::cout << Ken_String2Int(str);
 #ifdef _WIN32
 	system("pause");
 #endif

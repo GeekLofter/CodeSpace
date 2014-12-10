@@ -91,3 +91,63 @@ std::string Ken_FormatInt2Thousands(const int num)
 	//if (num < 0 && rst[0] != '-') rst.insert(0, "-");
 	return rst;
 }
+
+int Ken_String2Int(char* str)
+{
+	if(str == NULL)
+		return 0;
+
+	bool flag = true;
+	if(*str < '0' || *str > '9')
+	{
+		if(*str == '-')
+			flag = false;
+		/*else if(*str == '+')*/
+		str++;
+	}
+
+	int res = 0;
+	while(*str != '\0')
+		res = res * 10 + ((*str ++) - '0');
+
+	return flag ? res : (-1)*res;
+}
+
+int Ken_String2Int(const char* str)
+{
+	if(str == NULL)
+		return 0;
+
+	bool flag = true;
+	if(*str < '0' || *str > '9')
+	{
+		if(*str == '-')
+			flag = false;
+		/*else if(*str == '+')*/
+		str++;
+	}
+
+	int res = 0;
+	while(*str != '\0')
+		res = res * 10 + ((*str ++) - '0');
+
+	return flag ? res : (-1)*res;
+}
+
+int Ken_String2Int(std::string& str)
+{
+	bool minus = true, plus = false;
+
+	if(str[0] == '-')
+		minus = false;
+
+	if(str[0] == '+')
+		plus = true;
+
+	int res = 0, i = 0;
+
+	for(!minus || plus ? i = 1 : i = 0; i < str.length(); ++i)
+		res = res * 10 + (str[i] - '0');
+
+	return minus ? res : (-1) * res;
+}
